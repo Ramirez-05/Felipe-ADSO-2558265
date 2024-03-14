@@ -7,17 +7,21 @@
   <title>Crear Nota</title>
 </head>
 <body>
-  <h1>Crear Nota</h1>
-  <form action="{{ route('store') }}" method="post">
+  <form method="POST" action="{{ route('store') }}">
     @csrf
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title">
+    <label>Título</label>
+    <input type="text" name="title">
+    @error('title')
+      <p style="color: red;">{{ $message }}</p>
+    @enderror
     <br>
-    <label for="description">Content:</label>
-    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    <label>Description</label>
+    <input type="text" name="description">
+    @error('description')
+      <p style="color: red;">{{ $message }}</p>
+    @enderror
     <br>
-    <button type="submit" value="create">Crear Nota</button>
-  </form>
+    <input type="submit" value="Guardar">
   
 </body>
 </html>

@@ -7,6 +7,20 @@
   <title>Listado de Notas</title>
 </head>
 <body>
+
+  @if($message = Session::get('success'))
+    <div style="background-color: green; color: white;">
+      <p>{{ $message }}</p>
+    </div>
+  @endif
+
+  @if($message = Session::get('error'))
+    <div style="background-color: red; color: white;">
+      <p>{{ $message }}</p>
+    </div>
+  @endif
+
+
   <h4>Crear Nota</h4>
   <a href="{{ route('create') }}">Crear Nota</a>
   <h1>Listado</h1>

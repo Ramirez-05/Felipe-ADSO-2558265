@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoteRequest;
 use Illuminate\Http\Request;
 use App\Models\Note;
 
@@ -18,10 +19,10 @@ class NoteController extends Controller
         return view('note');
     }
 
-    public function store(Request $request)
+    public function store(NoteRequest $request)
     {
         Note::create($request->all());
-        return redirect()->route('index');
+        return redirect()->route('index') -> with('success', 'Nota Creada');
     }
 
     public function show(Note $note)
